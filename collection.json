@@ -1106,21 +1106,15 @@
           "request": {
             "description": "List all loan agreements on your account",
             "url": {
-              "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id",
+              "raw": "{{baseUrl}}/loan_agreements",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "loan_agreements",
-                ":loan_agreement_id"
+                "loan_agreements"
               ],
               "query": [],
-              "variable": [
-                {
-                  "key": "loan_agreement_id",
-                  "value": ""
-                }
-              ]
+              "variable": []
             },
             "header": [],
             "method": "GET"
