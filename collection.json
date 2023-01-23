@@ -163,7 +163,7 @@
           "_type": "endpoint"
         },
         {
-          "name": "Create an application",
+          "name": "Approve an application",
           "request": {
             "url": {
               "raw": "{{baseUrl}}/applications/:application_id/approve",
@@ -187,7 +187,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+              "raw": "{\n    \"offer\": {\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    },\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"installment_loan\",\n    \"status\": \"pending\",\n    \"created_on\": \"1994-11-05T13:15:30Z\",\n    \"decisioned_on\": \"1994-11-05T13:15:30Z\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
