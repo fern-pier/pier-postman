@@ -965,6 +965,34 @@
           "_type": "endpoint"
         },
         {
+          "name": "Retrieve a facility",
+          "request": {
+            "description": "Retrieve a facility by its id",
+            "url": {
+              "raw": "{{baseUrl}}/facilities/:facility_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "facilities",
+                ":facility_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "facility_id",
+                  "value": "",
+                  "description": "The facility_id of the facility you want to retrieve"
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
           "name": "List all facilities",
           "request": {
             "description": "List all facilities on your account",
