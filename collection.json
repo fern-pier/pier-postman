@@ -166,15 +166,22 @@
           "name": "Create an application",
           "request": {
             "url": {
-              "raw": "{{baseUrl}}/applications",
+              "raw": "{{baseUrl}}/applications/:application_id/approve",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "applications"
+                "applications",
+                ":application_id",
+                "approve"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "key": "application_id",
+                  "value": ""
+                }
+              ]
             },
             "header": [],
             "method": "POST",
@@ -822,6 +829,41 @@
             },
             "header": [],
             "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Loans",
+      "item": [
+        {
+          "name": "Create a loan agreement",
+          "request": {
+            "url": {
+              "raw": "{{baseUrl}}/loan_agreements",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loan_agreements"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"example\",\n    \"application_id\": \"app_f0467657bba948e6a87292e182132848\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [],
           "_type": "endpoint"
