@@ -837,11 +837,180 @@
       "_type": "container"
     },
     {
+      "name": "Coverage",
+      "item": [
+        {
+          "name": "Retrieve commercial lending coverage",
+          "request": {
+            "description": "Retrieve state-by-state commercial coverage",
+            "url": {
+              "raw": "{{baseUrl}}/coverage/commercial",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "coverage",
+                "commercial"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Retrieve consumer lending coverage",
+          "request": {
+            "description": "Retrieve state-by-state consumer coverage list",
+            "url": {
+              "raw": "{{baseUrl}}/coverage/consumer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "coverage",
+                "consumer"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Retrieve rejection reasons",
+          "request": {
+            "description": "Retrieve a list of valid reasons to reject an applicant, along with descriptions for each reason",
+            "url": {
+              "raw": "{{baseUrl}}/rejection_reasons",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rejection_reasons"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Facilities",
+      "item": [
+        {
+          "name": "Create a facility",
+          "request": {
+            "description": "A facility can be created for a given loan agreement with a status of `signed`",
+            "url": {
+              "raw": "{{baseUrl}}/facilities/facilities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "facilities",
+                "facilities"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"loan_agreement_id\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Close a facility",
+          "request": {
+            "description": "Closes an active facility by setting its status to `closed`",
+            "url": {
+              "raw": "{{baseUrl}}/facilities/facilities/:facility_id/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "facilities",
+                "facilities",
+                ":facility_id",
+                "close"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "facility_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"facility_id\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "List all facilities",
+          "request": {
+            "description": "List all facilities on your account",
+            "url": {
+              "raw": "{{baseUrl}}/facilities/facilities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "facilities",
+                "facilities"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
       "name": "Loans",
       "item": [
         {
           "name": "Create a loan agreement",
           "request": {
+            "description": "A loan agreement can be created for an application with a status of approved. Expect 4-8 seconds of latency",
             "url": {
               "raw": "{{baseUrl}}/loan_agreements",
               "host": [
@@ -857,13 +1026,104 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"id\": \"example\",\n    \"application_id\": \"app_f0467657bba948e6a87292e182132848\"\n}",
+              "raw": "{\n    \"application_id\": \"app_f0467657bba948e6a87292e182132848\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Sign a loan agreement",
+          "request": {
+            "description": "Electronically signs a loan document and updates the application's status to `accepted`",
+            "url": {
+              "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id/sign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loan_agreements",
+                ":loan_agreement_id",
+                "sign"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "loan_agreement_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"loan_agreement_id\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Get a loan agreement by id",
+          "request": {
+            "description": "Retrieve a loan agreement by its id",
+            "url": {
+              "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loan_agreements",
+                ":loan_agreement_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "loan_agreement_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "List all loan agreements",
+          "request": {
+            "description": "List all loan agreements on your account",
+            "url": {
+              "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loan_agreements",
+                ":loan_agreement_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "loan_agreement_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
           },
           "response": [],
           "_type": "endpoint"
