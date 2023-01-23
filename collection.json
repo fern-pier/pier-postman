@@ -267,12 +267,11 @@
           "request": {
             "description": "List all applications associated with your account",
             "url": {
-              "raw": "{{baseUrl}}/applications/applications",
+              "raw": "{{baseUrl}}/applications",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "applications",
                 "applications"
               ],
               "query": [],
@@ -295,13 +294,13 @@
           "request": {
             "description": "Creates a business borrower. Business borrowers must have a unique EIN.",
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers",
+              "raw": "{{baseUrl}}/borrowers/business",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "borrowers",
-                "borrowers"
+                "business"
               ],
               "query": [],
               "variable": []
@@ -326,13 +325,13 @@
               "originalRequest": {
                 "description": "Creates a business borrower. Business borrowers must have a unique EIN.",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers",
+                  "raw": "{{baseUrl}}/borrowers/business",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
                     "borrowers",
-                    "borrowers"
+                    "business"
                   ],
                   "query": [],
                   "variable": []
@@ -360,13 +359,13 @@
           "request": {
             "description": "Updates an existing borrower. The full borrower object needs to be supplied in the update request.",
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+              "raw": "{{baseUrl}}/borrowers/business/:borrower_id",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "borrowers",
-                "borrowers",
+                "business",
                 ":borrower_id"
               ],
               "query": [],
@@ -397,13 +396,13 @@
               "originalRequest": {
                 "description": "Updates an existing borrower. The full borrower object needs to be supplied in the update request.",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/business/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
                     "borrowers",
-                    "borrowers",
+                    "business",
                     ":borrower_id"
                   ],
                   "query": [],
@@ -437,12 +436,11 @@
           "request": {
             "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+              "raw": "{{baseUrl}}/borrowers/consumer",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "borrowers",
                 "borrowers",
                 "consumer"
               ],
@@ -469,12 +467,11 @@
               "originalRequest": {
                 "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "raw": "{{baseUrl}}/borrowers/consumer",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer"
                   ],
@@ -503,12 +500,11 @@
               "originalRequest": {
                 "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "raw": "{{baseUrl}}/borrowers/consumer",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer"
                   ],
@@ -537,12 +533,11 @@
               "originalRequest": {
                 "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "raw": "{{baseUrl}}/borrowers/consumer",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer"
                   ],
@@ -571,12 +566,11 @@
           "name": "Update a consumer borrower",
           "request": {
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+              "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "borrowers",
                 "borrowers",
                 "consumer",
                 ":borrower_id"
@@ -608,12 +602,11 @@
               "code": 200,
               "originalRequest": {
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer",
                     ":borrower_id"
@@ -647,12 +640,11 @@
               "code": 400,
               "originalRequest": {
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer",
                     ":borrower_id"
@@ -686,12 +678,11 @@
               "code": 404,
               "originalRequest": {
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     "consumer",
                     ":borrower_id"
@@ -727,12 +718,11 @@
           "request": {
             "description": "Retrieve one borrower by id",
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+              "raw": "{{baseUrl}}/borrowers/:borrower_id",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "borrowers",
                 "borrowers",
                 ":borrower_id"
               ],
@@ -755,12 +745,11 @@
               "originalRequest": {
                 "description": "Retrieve one borrower by id",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     ":borrower_id"
                   ],
@@ -785,12 +774,11 @@
               "originalRequest": {
                 "description": "Retrieve one borrower by id",
                 "url": {
-                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "raw": "{{baseUrl}}/borrowers/:borrower_id",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "borrowers",
                     "borrowers",
                     ":borrower_id"
                   ],
@@ -816,12 +804,11 @@
           "request": {
             "description": "Retrieve all borrowers associated with your account",
             "url": {
-              "raw": "{{baseUrl}}/borrowers/borrowers",
+              "raw": "{{baseUrl}}/borrowers",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "borrowers",
                 "borrowers"
               ],
               "query": [],
@@ -915,12 +902,11 @@
           "request": {
             "description": "A facility can be created for a given loan agreement with a status of `signed`",
             "url": {
-              "raw": "{{baseUrl}}/facilities/facilities",
+              "raw": "{{baseUrl}}/facilities",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "facilities",
                 "facilities"
               ],
               "query": [],
@@ -946,12 +932,11 @@
           "request": {
             "description": "Closes an active facility by setting its status to `closed`",
             "url": {
-              "raw": "{{baseUrl}}/facilities/facilities/:facility_id/close",
+              "raw": "{{baseUrl}}/facilities/:facility_id/close",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "facilities",
                 "facilities",
                 ":facility_id",
                 "close"
@@ -984,12 +969,11 @@
           "request": {
             "description": "List all facilities on your account",
             "url": {
-              "raw": "{{baseUrl}}/facilities/facilities",
+              "raw": "{{baseUrl}}/facilities",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "facilities",
                 "facilities"
               ],
               "query": [],
