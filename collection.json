@@ -1,0 +1,589 @@
+{
+  "info": {
+    "name": "api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.pier-finance.com/api",
+      "type": "string"
+    },
+    {
+      "key": "username",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "password",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{username}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{password}}",
+        "type": "string"
+      }
+    ],
+    "type": "basic"
+  },
+  "item": [
+    {
+      "name": "Borrowers",
+      "item": [
+        {
+          "name": "Create a business borrower",
+          "request": {
+            "description": "Creates a business borrower. Business borrowers must have a unique EIN.",
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Creates a business borrower. Business borrowers must have a unique EIN.",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"id\": \"bor_18e5a3726b3943cda2635f40e1041ba4\",\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\",\n    \"created_on\": \"2022-12-30T07:23:36.665Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Update a business borrower",
+          "request": {
+            "description": "Updates an existing borrower. The full borrower object needs to be supplied in the update request.",
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers",
+                ":borrower_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "borrower_id",
+                  "value": "bor_18e5a3726b3943cda2635f40e1041ba4"
+                }
+              ]
+            },
+            "header": [],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Updates an existing borrower. The full borrower object needs to be supplied in the update request.",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_18e5a3726b3943cda2635f40e1041ba4"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"address\": {\n        \"line_1\": \"15 Market St\",\n        \"line_2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"NJ\",\n        \"zip\": \"94133\"\n    },\n    \"business_contact\": {\n        \"first_name\": \"alex\",\n        \"last_name\": \"montana\",\n        \"phone\": \"4155555555\",\n        \"email\": \"alex@acme.co\",\n        \"title\": \"COO\"\n    },\n    \"beneficial_owners\": [\n        {\n            \"address\": {\n                \"line_1\": \"15 Market St\",\n                \"line_2\": null,\n                \"city\": \"San Francisco\",\n                \"state\": \"CA\",\n                \"zip\": \"91133\"\n            },\n            \"date_of_birth\": \"1991-12-18\",\n            \"email\": \"jdoe@acme.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Dough\",\n            \"percent_ownership\": 2500,\n            \"phone\": \"4155555555\",\n            \"ssn\": \"123456789\",\n            \"id\": \"63ae91f8eae458cb0d79f77e\"\n        }\n    ],\n    \"id\": \"bor_18e5a3726b3943cda2635f40e1041ba4\",\n    \"business_name\": \"Apple Landscaping\",\n    \"business_type\": \"corporation\",\n    \"dba_name\": \"Apple Landscaping\",\n    \"ein\": \"130256721\",\n    \"incorporation_date\": \"2000-12-12\",\n    \"kyb_completion_date\": \"2022-11-15\",\n    \"phone\": \"4152556465\",\n    \"state_of_incorporation\": \"DE\",\n    \"created_on\": \"2022-12-30T07:23:36.665Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Create a consumer borrower",
+          "request": {
+            "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers",
+                "consumer"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Invalid Input Error",
+              "status": "Invalid Input Error",
+              "code": 400,
+              "originalRequest": {
+                "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"INVALID_INPUT\",\n    \"error_code\": \"BORROWER_ERROR\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"jdough@acme\",\n            \"msg\": \"Email must be a valid email\",\n            \"param\": \"email\",\n            \"location\": \"body\"\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Duplicate Ssn Error",
+              "status": "Duplicate Ssn Error",
+              "code": 400,
+              "originalRequest": {
+                "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"DUPLICATE_SSN\",\n    \"error_message\": \"A borrower with that SSN already exists\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Update a consumer borrower",
+          "request": {
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers",
+                "consumer",
+                ":borrower_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "borrower_id",
+                  "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                }
+              ]
+            },
+            "header": [],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Invalid Input Error",
+              "status": "Invalid Input Error",
+              "code": 400,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"INVALID_INPUT\",\n    \"error_code\": \"BORROWER_ERROR\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"jdough@acme\",\n            \"msg\": \"Email must be a valid email\",\n            \"param\": \"email\",\n            \"location\": \"body\"\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Borrower Not Found Error",
+              "status": "Borrower Not Found Error",
+              "code": 404,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/consumer/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    "consumer",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"A borrower resource does not exist\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Retrieve a borrower by id",
+          "request": {
+            "description": "Retrieve one borrower by id",
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers",
+                ":borrower_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "borrower_id",
+                  "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve one borrower by id",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Borrower Not Found Error",
+              "status": "Borrower Not Found Error",
+              "code": 404,
+              "originalRequest": {
+                "description": "Retrieve one borrower by id",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers/borrowers/:borrower_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers",
+                    "borrowers",
+                    ":borrower_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "borrower_id",
+                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"The borrower resource does not exist\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "List all borrowers",
+          "request": {
+            "description": "Retrieve all borrowers associated with your account",
+            "url": {
+              "raw": "{{baseUrl}}/borrowers/borrowers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "borrowers",
+                "borrowers"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    }
+  ]
+}
