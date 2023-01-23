@@ -886,7 +886,7 @@
               "variable": []
             },
             "header": [],
-            "method": "POST"
+            "method": "GET"
           },
           "response": [],
           "_type": "endpoint"
