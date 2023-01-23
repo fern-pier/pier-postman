@@ -37,6 +37,250 @@
   },
   "item": [
     {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Create an application",
+          "request": {
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"installment_loan\",\n    \"status\": \"pending\",\n    \"created_on\": \"2022-12-31T01:36:52.606Z\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Invalid Input Error",
+              "status": "Invalid Input Error",
+              "code": 400,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"APPLICATION_ERROR\",\n    \"error_code\": \"INVALID_INPUT\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"loc\",\n            \"msg\": \"Credit type must be either LOAN, REVOLVING_LINE_OF_CREDIT or CLOSED_LINE_OF_CREDIT\",\n            \"param\": \"credit_type\",\n            \"location\": \"body\"\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Borrower Not Found Error",
+              "status": "Borrower Not Found Error",
+              "code": 404,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"The borrower resource does not exist\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Create an application",
+          "request": {
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Reject an application",
+          "request": {
+            "description": "Updates the status of a credit application to `REJECTED` and returns a user readable rejection reason, to be used in the adverse action notice",
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/reject",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "reject"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "application_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"rejection_reason\": \"income_too_low\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Get an application by ID",
+          "request": {
+            "description": "Get an application by its id",
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "application_id",
+                  "value": ""
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        },
+        {
+          "name": "List all applications",
+          "request": {
+            "description": "List all applications associated with your account",
+            "url": {
+              "raw": "{{baseUrl}}/applications/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                "applications"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
       "name": "Borrowers",
       "item": [
         {
