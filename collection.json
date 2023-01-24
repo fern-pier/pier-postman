@@ -96,68 +96,6 @@
               },
               "body": "{\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"installment_loan\",\n    \"status\": \"pending\",\n    \"created_on\": \"2022-12-31T01:36:52.606Z\"\n}",
               "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Invalid Input Error",
-              "status": "Invalid Input Error",
-              "code": 400,
-              "originalRequest": {
-                "url": {
-                  "raw": "{{baseUrl}}/applications",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "applications"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"APPLICATION_ERROR\",\n    \"error_code\": \"INVALID_INPUT\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"loc\",\n            \"msg\": \"Credit type must be either LOAN, REVOLVING_LINE_OF_CREDIT or CLOSED_LINE_OF_CREDIT\",\n            \"param\": \"credit_type\",\n            \"location\": \"body\"\n        }\n    ]\n}",
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Borrower Not Found Error",
-              "status": "Borrower Not Found Error",
-              "code": 404,
-              "originalRequest": {
-                "url": {
-                  "raw": "{{baseUrl}}/applications",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "applications"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"requested_amount\": 200000\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"The borrower resource does not exist\"\n}",
-              "_postman_previewlanguage": "json"
             }
           ],
           "_type": "endpoint"
@@ -179,7 +117,7 @@
               "variable": [
                 {
                   "key": "application_id",
-                  "value": ""
+                  "value": "app_f0467657bba948e6a87292e182132848"
                 }
               ]
             },
@@ -187,7 +125,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"offer\": {\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    },\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"credit_type\": \"installment_loan\",\n    \"status\": \"pending\",\n    \"created_on\": \"1994-11-05T13:15:30Z\",\n    \"decisioned_on\": \"1994-11-05T13:15:30Z\"\n}",
+              "raw": "{\n    \"type\": \"line_of_credit\",\n    \"amount\": 1000000,\n    \"apr\": 0,\n    \"annual_fee\": 0,\n    \"billing_cycle\": 30,\n    \"finance_charge\": 0,\n    \"grace_period\": 21,\n    \"grace_period_interest_rate\": 0,\n    \"interest_rate\": 0,\n    \"late_payment_fee\": 0,\n    \"origination_fee\": 0,\n    \"term\": 24\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -195,7 +133,46 @@
               }
             }
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application_id/approve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application_id",
+                    "approve"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "application_id",
+                      "value": "app_f0467657bba948e6a87292e182132848"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"line_of_credit\",\n    \"amount\": 1000000,\n    \"apr\": 0,\n    \"annual_fee\": 0,\n    \"billing_cycle\": 30,\n    \"finance_charge\": 0,\n    \"grace_period\": 21,\n    \"grace_period_interest_rate\": 0,\n    \"interest_rate\": 0,\n    \"late_payment_fee\": 0,\n    \"origination_fee\": 0,\n    \"term\": 24\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"status\": \"approved\",\n    \"created_on\": \"2022-12-31T01:36:52.606Z\",\n    \"decisioned_on\": \"2023-01-17T05:31:52.955Z\",\n    \"offer\": {\n        \"type\": \"line_of_credit\",\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -216,7 +193,7 @@
               "variable": [
                 {
                   "key": "application_id",
-                  "value": ""
+                  "value": "app_f0467657bba948e6a87292e182132848"
                 }
               ]
             },
@@ -224,7 +201,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"rejection_reason\": \"income_too_low\"\n}",
+              "raw": "{\n    \"rejection_reason\": \"bank_balance_too_low\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -232,7 +209,47 @@
               }
             }
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Updates the status of a credit application to `REJECTED` and returns a user readable rejection reason, to be used in the adverse action notice",
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application_id/reject",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application_id",
+                    "reject"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "application_id",
+                      "value": "app_f0467657bba948e6a87292e182132848"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"rejection_reason\": \"bank_balance_too_low\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"rejection_reasons\": [\n        \"bank_balance_too_low\"\n    ],\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_1677bbbaf21a4954bb114bd9c4348d8a\",\n    \"credit_type\": \"installment_loan\",\n    \"status\": \"rejected\",\n    \"created_on\": \"2022-12-31T02:20:35.934Z\",\n    \"decisioned_on\": \"2022-12-31T02:21:01.842Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -252,14 +269,44 @@
               "variable": [
                 {
                   "key": "application_id",
-                  "value": ""
+                  "value": "app_f0467657bba948e6a87292e182132848"
                 }
               ]
             },
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Get an application by its id",
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "application_id",
+                      "value": "app_f0467657bba948e6a87292e182132848"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"id\": \"app_f0467657bba948e6a87292e182132848\",\n    \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"status\": \"approved\",\n    \"created_on\": \"2022-12-31T01:36:52.606Z\",\n    \"decisioned_on\": \"2023-01-17T05:31:52.955Z\",\n    \"offer\": {\n        \"type\": \"line_of_credit\",\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -280,7 +327,31 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "List all applications associated with your account",
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "[\n    {\n        \"id\": \"app_f0467657bba948e6a87292e182132848\",\n        \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n        \"credit_type\": \"revolving_line_of_credit\",\n        \"status\": \"approved\",\n        \"created_on\": \"2022-12-31T01:36:52.606Z\",\n        \"decisioned_on\": \"2023-01-17T05:31:52.955Z\",\n        \"offer\": {\n            \"type\": \"line_of_credit\",\n            \"amount\": 1000000,\n            \"apr\": 0,\n            \"annual_fee\": 0,\n            \"billing_cycle\": 30,\n            \"finance_charge\": 0,\n            \"grace_period\": 21,\n            \"grace_period_interest_rate\": 0,\n            \"interest_rate\": 0,\n            \"late_payment_fee\": 0,\n            \"origination_fee\": 0,\n            \"term\": 24\n        }\n    },\n    {\n        \"id\": \"app_f0467657bba948e6a87292e182132848\",\n        \"borrower_id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n        \"credit_type\": \"installment_loan\",\n        \"status\": \"pending\",\n        \"created_on\": \"2022-12-31T01:36:52.606Z\"\n    }\n]",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         }
       ],
@@ -492,72 +563,6 @@
               },
               "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
               "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Invalid Input Error",
-              "status": "Invalid Input Error",
-              "code": 400,
-              "originalRequest": {
-                "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
-                "url": {
-                  "raw": "{{baseUrl}}/borrowers/consumer",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "borrowers",
-                    "consumer"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"INVALID_INPUT\",\n    \"error_code\": \"BORROWER_ERROR\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"jdough@acme\",\n            \"msg\": \"Email must be a valid email\",\n            \"param\": \"email\",\n            \"location\": \"body\"\n        }\n    ]\n}",
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Duplicate Ssn Error",
-              "status": "Duplicate Ssn Error",
-              "code": 400,
-              "originalRequest": {
-                "description": "Creates a consumer borrower. Consumer borrower's must have a unique SSN.",
-                "url": {
-                  "raw": "{{baseUrl}}/borrowers/consumer",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "borrowers",
-                    "consumer"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"DUPLICATE_SSN\",\n    \"error_message\": \"A borrower with that SSN already exists\"\n}",
-              "_postman_previewlanguage": "json"
             }
           ],
           "_type": "endpoint"
@@ -633,82 +638,6 @@
               },
               "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
               "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Invalid Input Error",
-              "status": "Invalid Input Error",
-              "code": 400,
-              "originalRequest": {
-                "url": {
-                  "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "borrowers",
-                    "consumer",
-                    ":borrower_id"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "borrower_id",
-                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
-                    }
-                  ]
-                },
-                "header": [],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"INVALID_INPUT\",\n    \"error_code\": \"BORROWER_ERROR\",\n    \"error_message\": \"A value provided in the body is incorrect. See error_detail for more\",\n    \"error_detail\": [\n        {\n            \"value\": \"jdough@acme\",\n            \"msg\": \"Email must be a valid email\",\n            \"param\": \"email\",\n            \"location\": \"body\"\n        }\n    ]\n}",
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Borrower Not Found Error",
-              "status": "Borrower Not Found Error",
-              "code": 404,
-              "originalRequest": {
-                "url": {
-                  "raw": "{{baseUrl}}/borrowers/consumer/:borrower_id",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "borrowers",
-                    "consumer",
-                    ":borrower_id"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "borrower_id",
-                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
-                    }
-                  ]
-                },
-                "header": [],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": \"Unit 204\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"phone\": \"2065886919\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"A borrower resource does not exist\"\n}",
-              "_postman_previewlanguage": "json"
             }
           ],
           "_type": "endpoint"
@@ -766,35 +695,6 @@
               },
               "body": "{\n    \"address\": {\n        \"line_1\": \"15 Main Street\",\n        \"line_2\": null,\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"73301\"\n    },\n    \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n    \"date_of_birth\": \"1991-12-18\",\n    \"email\": \"jdough@acme.co\",\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Dough\",\n    \"ssn\": \"999888777\",\n    \"kyc_completion_date\": \"2022-11-15\",\n    \"created_on\": \"2022-12-31T00:58:47.828Z\",\n    \"phone\": \"2065886919\"\n}",
               "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Borrower Not Found Error",
-              "status": "Borrower Not Found Error",
-              "code": 404,
-              "originalRequest": {
-                "description": "Retrieve one borrower by id",
-                "url": {
-                  "raw": "{{baseUrl}}/borrowers/:borrower_id",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "borrowers",
-                    ":borrower_id"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "borrower_id",
-                      "value": "bor_a1d0c30d77104f35b4c842b99132624e"
-                    }
-                  ]
-                },
-                "header": [],
-                "method": "GET"
-              },
-              "body": "{\n    \"error_type\": \"BORROWER_ERROR\",\n    \"error_code\": \"BORROWER_NOT_FOUND\",\n    \"error_message\": \"The borrower resource does not exist\"\n}",
-              "_postman_previewlanguage": "json"
             }
           ],
           "_type": "endpoint"
@@ -817,7 +717,31 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve all borrowers associated with your account",
+                "url": {
+                  "raw": "{{baseUrl}}/borrowers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "borrowers"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "[\n    {\n        \"type\": \"business\",\n        \"address\": {\n            \"line_1\": \"15 Market St\",\n            \"line_2\": null,\n            \"city\": \"San Francisco\",\n            \"state\": \"NJ\",\n            \"zip\": \"94133\"\n        },\n        \"business_contact\": {\n            \"first_name\": \"alex\",\n            \"last_name\": \"montana\",\n            \"phone\": \"4155555555\",\n            \"email\": \"alex@acme.co\",\n            \"title\": \"COO\"\n        },\n        \"beneficial_owners\": [\n            {\n                \"address\": {\n                    \"line_1\": \"15 Market St\",\n                    \"line_2\": null,\n                    \"city\": \"San Francisco\",\n                    \"state\": \"CA\",\n                    \"zip\": \"91133\"\n                },\n                \"date_of_birth\": \"1991-12-18\",\n                \"email\": \"jdoe@acme.com\",\n                \"first_name\": \"Jane\",\n                \"last_name\": \"Dough\",\n                \"percent_ownership\": 2500,\n                \"phone\": \"4155555555\",\n                \"ssn\": \"123456789\",\n                \"id\": \"63ae91f8eae458cb0d79f77e\"\n            }\n        ],\n        \"id\": \"bor_18e5a3726b3943cda2635f40e1041ba4\",\n        \"business_name\": \"Apple Landscaping\",\n        \"business_type\": \"corporation\",\n        \"dba_name\": \"Apple Landscaping\",\n        \"ein\": \"130256721\",\n        \"incorporation_date\": \"2000-12-12\",\n        \"kyb_completion_date\": \"2022-11-15\",\n        \"phone\": \"4152556465\",\n        \"state_of_incorporation\": \"DE\",\n        \"created_on\": \"2022-12-30T07:23:36.665Z\"\n    },\n    {\n        \"type\": \"consumer\",\n        \"address\": {\n            \"line_1\": \"15 Main Street\",\n            \"line_2\": \"Unit 204\",\n            \"city\": \"Austin\",\n            \"state\": \"TX\",\n            \"zip\": \"73301\"\n        },\n        \"date_of_birth\": \"1991-12-18\",\n        \"email\": \"jdough@acme.co\",\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Dough\",\n        \"ssn\": \"999888777\",\n        \"kyc_completion_date\": \"2022-11-15\",\n        \"phone\": \"2065886919\",\n        \"id\": \"bor_a1d0c30d77104f35b4c842b99132624e\",\n        \"created_on\": \"2022-12-30T07:23:36.665Z\"\n    }\n]",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         }
       ],
@@ -845,7 +769,32 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve state-by-state commercial coverage",
+                "url": {
+                  "raw": "{{baseUrl}}/coverage/commercial",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "coverage",
+                    "commercial"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"AL\": {\n        \"limit_1\": {\n            \"amount\": {\n                \"min\": 500000,\n                \"max\": 25000000\n            }\n        },\n        \"max_apr\": 9999,\n        \"business_types\": [\n            \"corporation\",\n            \"partnership\",\n            \"llc\",\n            \"sole_proprietorship\"\n        ]\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -867,7 +816,32 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve state-by-state consumer coverage list",
+                "url": {
+                  "raw": "{{baseUrl}}/coverage/consumer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "coverage",
+                    "consumer"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"AL\": {\n        \"limit_1\": {\n            \"amount\": {\n                \"min\": 150000,\n                \"max\": 5000000\n            }\n        },\n        \"max_apr\": 0\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -888,7 +862,31 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve a list of valid reasons to reject an applicant, along with descriptions for each reason",
+                "url": {
+                  "raw": "{{baseUrl}}/rejection_reasons",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rejection_reasons"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"income_too_low\": \"Income does not meet requirement\\n\",\n    \"bank_balance_too_low\": \"Bank account balance is too low\\n\",\n    \"income_unpredictable\": \"Unable to predict regular pattern of income deposits\\n\",\n    \"user_account_duplicate\": \"Duplicate account (previously applied for a loan with a different email address)\\n\",\n    \"sdb_check_failed\": \"State database lending restriction\\n\",\n    \"bank_account_linking_error\": \"Unable to link to a supported banking institution\\n\",\n    \"mla_failed\": \"Under the Military Lending Act, loans to military personnel or their spouses and dependents cannot be made if the interest and expenses associated with the loan exceed an annual percentage rate (APR) of 36%. Due to these limits on military-related lending, we can't lend to members of the military or their spouses and dependents. Please feel free to contact us with any questions you may have about this notice!\\n\",\n    \"iddoc_failed\": \"Unable to verify identification documents\\n\",\n    \"no_checking_or_savings_data\": \"No data from supported financial institution. Unsupported financial institution is linked\\n\",\n    \"insufficient_bank_history\": \"Unable to pull enough bank history\\n\",\n    \"loan_location_no_license\": \"Unable to verify that your permanent residence is in a state\\n\",\n    \"address_invalid\": \"Unable to verify mailing address\\n\",\n    \"income_verification_failed\": \"Unable to verify qualified income over a sustained period\\n\",\n    \"stacking_behavior\": \"Recent deposits and withdrawals detected from other lenders\\n\",\n    \"ssn_verification_failed\": \"Unable to verify SSN number\\n\",\n    \"too_many_nsfs\": \"Multiple Returned checks or Insufficient Fund Fees detected\\n\",\n    \"fraud_risk_too_high\": \"Bank account has been flagged as potential fraud risk\\n\",\n    \"bankruptcy\": \"Outstanding balance from previous loan\\n\",\n    \"processor_suspended\": \"Payment processor is unable to authenticate user\\n\",\n    \"cash_flow_verification_failed\": \"Cash flow analysis - income funds are quickly depleted from bank account after income deposit\\n\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         }
       ],
@@ -916,7 +914,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"loan_agreement_id\": \"example\"\n}",
+              "raw": "{\n    \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -924,7 +922,40 @@
               }
             }
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "A facility can be created for a given loan agreement with a status of `signed`",
+                "url": {
+                  "raw": "{{baseUrl}}/facilities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "facilities"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"terms\": {\n        \"type\": \"line_of_credit\",\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    },\n    \"id\": \"fac_7264c6575a894548a386939434b0adf3\",\n    \"application_id\": \"app_ad1564ffb1d745f9ad482bb5182708e2\",\n    \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n    \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"status\": \"active\",\n    \"created_on\": \"2023-01-17T04:59:21.773Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -945,23 +976,45 @@
               "variable": [
                 {
                   "key": "facility_id",
-                  "value": ""
+                  "value": "doc_234259b117854d0194bc5864a6c45b42"
                 }
               ]
             },
             "header": [],
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"facility_id\": \"example\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "method": "POST"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Closes an active facility by setting its status to `closed`",
+                "url": {
+                  "raw": "{{baseUrl}}/facilities/:facility_id/close",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "facilities",
+                    ":facility_id",
+                    "close"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "facility_id",
+                      "value": "doc_234259b117854d0194bc5864a6c45b42"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "body": "{\n    \"terms\": {\n        \"type\": \"line_of_credit\",\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    },\n    \"id\": \"fac_7264c6575a894548a386939434b0adf3\",\n    \"application_id\": \"app_ad1564ffb1d745f9ad482bb5182708e2\",\n    \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n    \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"status\": \"closed\",\n    \"created_on\": \"2023-01-17T04:59:21.773Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -981,15 +1034,46 @@
               "variable": [
                 {
                   "key": "facility_id",
-                  "value": "",
-                  "description": "The facility_id of the facility you want to retrieve"
+                  "description": "The facility_id of the facility you want to retrieve",
+                  "value": "doc_234259b117854d0194bc5864a6c45b42"
                 }
               ]
             },
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve a facility by its id",
+                "url": {
+                  "raw": "{{baseUrl}}/facilities/:facility_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "facilities",
+                    ":facility_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "facility_id",
+                      "description": "The facility_id of the facility you want to retrieve",
+                      "value": "doc_234259b117854d0194bc5864a6c45b42"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"terms\": {\n        \"type\": \"line_of_credit\",\n        \"amount\": 1000000,\n        \"apr\": 0,\n        \"annual_fee\": 0,\n        \"billing_cycle\": 30,\n        \"finance_charge\": 0,\n        \"grace_period\": 21,\n        \"grace_period_interest_rate\": 0,\n        \"interest_rate\": 0,\n        \"late_payment_fee\": 0,\n        \"origination_fee\": 0,\n        \"term\": 24\n    },\n    \"id\": \"fac_7264c6575a894548a386939434b0adf3\",\n    \"application_id\": \"app_ad1564ffb1d745f9ad482bb5182708e2\",\n    \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n    \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\",\n    \"credit_type\": \"revolving_line_of_credit\",\n    \"status\": \"active\",\n    \"created_on\": \"2023-01-17T04:59:21.773Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -1010,7 +1094,31 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "List all facilities on your account",
+                "url": {
+                  "raw": "{{baseUrl}}/facilities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "facilities"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "[\n    {\n        \"terms\": {\n            \"type\": \"line_of_credit\",\n            \"amount\": 1000000,\n            \"apr\": 0,\n            \"annual_fee\": 0,\n            \"billing_cycle\": 30,\n            \"finance_charge\": 0,\n            \"grace_period\": 21,\n            \"grace_period_interest_rate\": 0,\n            \"interest_rate\": 0,\n            \"late_payment_fee\": 0,\n            \"origination_fee\": 0,\n            \"term\": 24\n        },\n        \"id\": \"fac_7264c6575a894548a386939434b0adf3\",\n        \"application_id\": \"app_ad1564ffb1d745f9ad482bb5182708e2\",\n        \"borrower_id\": \"bor_d965bea9f47a4b108562642dbb1dae9f\",\n        \"loan_agreement_id\": \"doc_234259b117854d0194bc5864a6c45b42\",\n        \"credit_type\": \"revolving_line_of_credit\",\n        \"status\": \"active\",\n        \"created_on\": \"2023-01-17T04:59:21.773Z\"\n    }\n]",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         }
       ],
@@ -1038,7 +1146,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"application_id\": \"app_f0467657bba948e6a87292e182132848\"\n}",
+              "raw": "{\n    \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1046,7 +1154,40 @@
               }
             }
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "A loan agreement can be created for an application with a status of approved. Expect 4-8 seconds of latency",
+                "url": {
+                  "raw": "{{baseUrl}}/loan_agreements",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "loan_agreements"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "body": "{\n    \"status\": \"pending_signature\",\n    \"id\": \"doc_43da3b3f95c745e1985a71e9a00d6c27\",\n    \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\",\n    \"document_url\": \"https://production-formapi-docs.s3.amazonaws.com/store/acc_QqdcDH47A63qKZbK3S/templates/tpl_4zqGxezHzrfqDaxGr2/submissions/sub_J9PbHbXYbL4jzRxc3R.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJESVN6QC4ACN3XSQ%2F20221231%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221231T204739Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=cf0c6429ef72ca06d861cb912f5d1cf376a5c26c7f904aaa9bf08f10103785bd\",\n    \"created_on\": \"2022-12-31T20:47:38.152Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -1067,23 +1208,45 @@
               "variable": [
                 {
                   "key": "loan_agreement_id",
-                  "value": ""
+                  "value": "doc_96d13bec673c4eba8d44c9cda3bbb811"
                 }
               ]
             },
             "header": [],
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"loan_agreement_id\": \"example\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "method": "POST"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Electronically signs a loan document and updates the application's status to `accepted`",
+                "url": {
+                  "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id/sign",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "loan_agreements",
+                    ":loan_agreement_id",
+                    "sign"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "loan_agreement_id",
+                      "value": "doc_96d13bec673c4eba8d44c9cda3bbb811"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "body": "{\n    \"status\": \"signed\",\n    \"id\": \"doc_96d13bec673c4eba8d44c9cda3bbb811\",\n    \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\",\n    \"signature_timestamp\": \"2022-12-31T21:10:47.610Z\",\n    \"document_url\": \"https://production-formapi-docs.s3.amazonaws.com/store/acc_QqdcDH47A63qKZbK3S/templates/tpl_4zqGxezHzrfqDaxGr2/submissions/sub_jQRTtHgekEbdJTxtsR.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJESVN6QC4ACN3XSQ%2F20221231%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221231T210718Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=9ead57dba9e8e2179a3e9950f1c7c19fe8b10dfbc55f5ce09228bd216e4cdd73\",\n    \"created_on\": \"2022-12-31T21:07:16.642Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -1103,14 +1266,44 @@
               "variable": [
                 {
                   "key": "loan_agreement_id",
-                  "value": ""
+                  "value": "doc_43da3b3f95c745e1985a71e9a00d6c27"
                 }
               ]
             },
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Retrieve a loan agreement by its id",
+                "url": {
+                  "raw": "{{baseUrl}}/loan_agreements/:loan_agreement_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "loan_agreements",
+                    ":loan_agreement_id"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "loan_agreement_id",
+                      "value": "doc_43da3b3f95c745e1985a71e9a00d6c27"
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "{\n    \"status\": \"pending_signature\",\n    \"id\": \"doc_43da3b3f95c745e1985a71e9a00d6c27\",\n    \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\",\n    \"document_url\": \"https://production-formapi-docs.s3.amazonaws.com/store/acc_QqdcDH47A63qKZbK3S/templates/tpl_4zqGxezHzrfqDaxGr2/submissions/sub_J9PbHbXYbL4jzRxc3R.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJESVN6QC4ACN3XSQ%2F20221231%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221231T204739Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=cf0c6429ef72ca06d861cb912f5d1cf376a5c26c7f904aaa9bf08f10103785bd\",\n    \"created_on\": \"2022-12-31T20:47:38.152Z\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         },
         {
@@ -1131,7 +1324,31 @@
             "header": [],
             "method": "GET"
           },
-          "response": [],
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "List all loan agreements on your account",
+                "url": {
+                  "raw": "{{baseUrl}}/loan_agreements",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "loan_agreements"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "[\n    {\n        \"status\": \"pending_signature\",\n        \"id\": \"doc_43da3b3f95c745e1985a71e9a00d6c27\",\n        \"application_id\": \"app_a9d2f388030d4f4296f80fc327e08d0d\",\n        \"document_url\": \"https://production-formapi-docs.s3.amazonaws.com/store/acc_QqdcDH47A63qKZbK3S/templates/tpl_4zqGxezHzrfqDaxGr2/submissions/sub_J9PbHbXYbL4jzRxc3R.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJESVN6QC4ACN3XSQ%2F20221231%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221231T204739Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=cf0c6429ef72ca06d861cb912f5d1cf376a5c26c7f904aaa9bf08f10103785bd\",\n        \"created_on\": \"2022-12-31T20:47:38.152Z\"\n    }\n]",
+              "_postman_previewlanguage": "json"
+            }
+          ],
           "_type": "endpoint"
         }
       ],
